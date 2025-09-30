@@ -2,6 +2,7 @@
 Grid Bot trading on Bybit that supports (in addition to the built-in grid bot on Bybit):
 - Customized running period. Starts to run at `start_time` and closes at `end_time`.
 - Customized `start_price`. The orders can be pre-determined rather than depending on the price at `start_time`.
+- Inverse perpeptual contracts.
 
 # Run
 ## Check Python installation
