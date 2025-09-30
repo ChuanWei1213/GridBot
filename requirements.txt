@@ -1,12 +1,4 @@
 pandas
 numpy
-matplotlib
-seaborn
-mplfinance
 requests
 pybit
-ipython
-tqdm
-numba
-ipykernel
-jinja2 # Dataframe.style
