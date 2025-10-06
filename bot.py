@@ -536,8 +536,6 @@ class GridBot(BybitBot):
         
         self._check_leverage(category, symbol, leverage)
         
-        self._check_balance(self.settleCoin, total_investment)
-        
         if high_sl < high or low_sl > low:
             raise ValueError(f'Stoploss must be within the grid levels.')
         
@@ -870,6 +868,7 @@ class GridBot(BybitBot):
         self._to_maxlev(self.category, self.symbol)
         self._to_cross_margin()
         self._enable_collateral_coin(self.settleCoin)
+        self._check_balance(self.settleCoin, self.total_investment)
         
         self._waiting(self.start_time)
         
@@ -1050,9 +1049,7 @@ if __name__ == '__main__':
     equity = float(session.get_wallet_balance(accountType='UNIFIED', coin='BTC')['result']['list'][0]['coin'][0]['equity'])
     
     bot = GridBot(
-        # start_time = '2025-06-21 03:17:50',
         start_time = datetime.now(),
-        # end_time = '2025-05-30 00:00',
         end_time = datetime.now() + timedelta(hours=1),
         api_key = api_key,
         api_secret = api_secret,
